@@ -123,7 +123,10 @@ fun main() {
             println("Ejercicio 3")
             ej3()
         }
-        4 -> println("Ejercicio 4")
+        4 -> {
+            println("Ejercicio 4")
+            ej4( )
+        }
         5 -> println("Ejercicio 5")
         6 -> println("Ejercicio 6")
         7 -> println("Ejercicio 7")
@@ -146,6 +149,8 @@ fun main() {
 
 }
 fun ej3(){
+    val ANSI_PURPLE = "\u001B[35m"
+    val ANSI_RESET = "\u001B[0m"
     var agenda=AgendaContactos()
     println("¿Cuantos contactos quieres añadir a tu agenda?")
     var numContactos= readLine()!!.toInt()
@@ -153,40 +158,47 @@ fun ej3(){
         var contacto= Contacto()
         agenda.agregarContactos(contacto)
     }
+    var exit=false
     var opcion = ""
-    while (opcion != "0") {
+    while (!exit) {
+        println("Opcion: "+ opcion)
         println(
-            "Elige una opcion:\n" +
+            "$ANSI_PURPLE Elige una opcion:\n" +
                     "1. Añadir un contacto\n" +
                     "2. Eliminar un contacto\n" +
                     "3. Mostrar lista de contactos\n" +
                     "4. Buscar un contacto por nombre\n"+
-                    "0. Salir del programa"
+                    "0. Salir del programa $ANSI_RESET"
         )
-        var opcion= readLine()!!.toInt()
+        var opcion= readlnOrNull()
         when(opcion){
-            1->{
+            "1"->{
                 var nuevocontacto=Contacto()
                 agenda.agregarContactos(nuevocontacto)
             }
-            2->{
+            "2"->{
                 var contactoEliminar= readLine().toString()
                 agenda.eliminarContactos(contactoEliminar)
             }
-            3->{
+            "3"->{
                 agenda.mostrarTodosContactos()
                 println("Pulsa enter para volver al menu")
                 var volver = readLine().toString()
             }
-            4->{
+            "4"->{
+                println("Introduce el nombre:")
                 var contactoBuscar= readLine().toString()
                 agenda.mostrarContacto(contactoBuscar)
             }
-            0->{
+            "0"->{
                 println("Hasta luego.")
+                exit=true
             }
-            else-> println("Elige una opcion valida.")
+            else-> println("$opcion no es una opcion valida.")
         }
     }
+}
+fun ej4(){
+
 }
 

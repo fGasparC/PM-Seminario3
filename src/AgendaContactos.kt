@@ -9,14 +9,16 @@ class AgendaContactos (){
         for (contacto in contactos){
             if (contacto.nombre==nombre)
                 contactos.remove(contacto)
+            break
         }
     }
 
     fun mostrarContacto(nombre:String?){
         for (contacto in contactos){
             if(contacto.nombre==nombre){
-                contacto.toString()
+                println(contacto.toString())
             }
+
         }
     }
     fun mostrarTodosContactos(){

@@ -15,4 +15,7 @@ class Contacto() {
         println("Introduce el email del contacto")
         email= readLine() ?: "null"
     }
+    override fun toString(): String {
+        return "Nombre: "+nombre+"\nTelefono: "+telefono+"\nEmail: "+email
+    }
 }

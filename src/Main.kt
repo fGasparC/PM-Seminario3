@@ -110,9 +110,9 @@ donde las claves sean las plataformas y el valor el número de juegos para dicha
 plataforma.
 
  */
+val ANSI_PURPLE = "\u001B[35m"
+val ANSI_RESET = "\u001B[0m"
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
     println("Elige ejercicio")
     var ejercicio = readLine()!!.toInt()
@@ -127,7 +127,10 @@ fun main() {
             println("Ejercicio 4")
             ej4( )
         }
-        5 -> println("Ejercicio 5")
+        5 -> {
+            println("Ejercicio 5")
+            ej5()
+        }
         6 -> println("Ejercicio 6")
         7 -> println("Ejercicio 7")
         8 -> println("Ejercicio 8")
@@ -149,8 +152,6 @@ fun main() {
 
 }
 fun ej3(){
-    val ANSI_PURPLE = "\u001B[35m"
-    val ANSI_RESET = "\u001B[0m"
     var agenda=AgendaContactos()
     println("¿Cuantos contactos quieres añadir a tu agenda?")
     var numContactos= readLine()!!.toInt()
@@ -199,6 +200,47 @@ fun ej3(){
     }
 }
 fun ej4(){
-
+    var lista=ListaEstudiantes()
+    println("¿Cuantos estudiantes quieres añadir a tu agenda?")
+    var numEstudiantes= readLine()!!.toInt()
+    for(i in 0..numEstudiantes-1){
+        var estudiante= Estudiante()
+        lista.agregarEstudiante(estudiante)
+    }
+    var exit=false
+    var opcion = ""
+    while (!exit) {
+        println("Opcion: "+ opcion)
+        println(
+            "$ANSI_PURPLE Elige una opcion:\n" +
+                    "1. Añadir un estudiante.\n" +
+                    "2. Mostrar un estudiante.\n" +
+                    "4. Mostrar promedio de los estudiantes.\n"+
+                    "0. Salir del programa $ANSI_RESET"
+        )
+        var opcion= readlnOrNull()
+        when(opcion){
+            "1"->{
+                var nuevoEstudiante=Estudiante()
+                lista.agregarEstudiante(nuevoEstudiante)
+            }
+            "2"->{
+                println("Introduce el nombre:")
+                var estudianteBuscar= readLine().toString()
+                lista.mostrarEstudiante(estudianteBuscar)
+            }
+            "4"->{
+                println("El promedio de los estudiantes es ${lista.calculaPromedios()}")
+            }
+            "0"->{
+                println("Hasta luego.")
+                exit=true
+            }
+            else-> println("$opcion no es una opcion valida.")
+        }
+    }
+}
+fun ej5(){
+    
 }
 

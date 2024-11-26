@@ -4,16 +4,21 @@ class Estudiante() {
     var calificaciones=0f
 
     init {
-        creaContactos()
+        creaEstudiante()
     }
 
-    fun creaContactos() {
-        println("Introduce el nombre del contacto")
+    fun creaEstudiante() {
+        println("Introduce el nombre del estudiante")
         nombre = readLine() ?: "null"
-        println("Introduce el numero del contacto")
-        edad = readLine()!!.toInt()
-        println("Introduce el email del contacto")
-        calificaciones= readLine()!!.toFloat()
+        try {
+            println("Introduce la edad del estudiante")
+            edad = readLine()!!.toInt()
+            println("Introduce la calificacion del estudiante")
+            calificaciones = readLine()!!.toFloat()
+        }
+        catch (e:Exception){
+            println(e)
+        }
     }
     override fun toString(): String {
         return "Nombre: "+nombre+"\nEdad: "+edad+"\nCalificaciones: "+calificaciones

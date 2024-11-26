@@ -4,15 +4,15 @@ class Producto {
     var cantidad=0
 
     init {
-        creaContactos()
+        creaProducto()
     }
 
-    fun creaContactos() {
+    fun creaProducto() {
         println("Introduce el nombre del producto")
         nombre = readLine() ?: "null"
         println("Introduce el precio del producto")
         precio = readLine()!!.toFloat()
-        println("Introduce el stocko del producto")
+        println("Introduce el stock del producto")
         cantidad= readLine()!!.toInt()
     }
     override fun toString(): String {

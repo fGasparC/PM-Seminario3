@@ -112,13 +112,20 @@ plataforma.
  */
 val ANSI_PURPLE = "\u001B[35m"
 val ANSI_RESET = "\u001B[0m"
+var sistemaSolar=SistemaSolar()
+var sistSolarcreado=false
 
 fun main() {
+
     println("Elige ejercicio")
     var ejercicio = readLine()!!.toInt()
     when(ejercicio){
-        1 -> println("Ejercicio 1")
-        2 -> println("Ejercicio 2")
+        1 -> {
+            println("Ejercicio 1\nEs la clase Planeta.")
+        }
+        2 -> {
+            println("Ejercicio 2\nEs la clase Triangulo")
+        }
         3 -> {
             println("Ejercicio 3")
             ej3()
@@ -131,11 +138,32 @@ fun main() {
             println("Ejercicio 5")
             ej5()
         }
-        6 -> println("Ejercicio 6")
-        7 -> println("Ejercicio 7")
-        8 -> println("Ejercicio 8")
-        9 -> println("Ejercicio 9")
-        10 -> println("Ejercicio 10")
+        6 -> {
+            println("Ejercicio 6")
+            ej6()
+            println("Se ha creado el Sistema Solar.")
+        }
+        7 -> {
+            println("Ejercicio 7")
+            if (sistSolarcreado==false) ej6()
+            sistemaSolar.mostrarPlanetas()
+
+        }
+        8 -> {
+            println("Ejercicio 8")
+            if (sistSolarcreado==false) ej6()
+            sistemaSolar.mostrarPlanetasQueEmpiecenConLaLetrita('M')
+        }
+        9 -> {
+            println("Ejercicio 9")
+            if (sistSolarcreado==false) ej6()
+            sistemaSolar.mostrarPlanetasGaseososConMasaVeinteVecesMayorTierra()
+        }
+        10 -> {
+            println("Ejercicio 10")
+            if (sistSolarcreado==false) ej6()
+            println("La masa media del sistema solar es ${sistemaSolar.masaMedia()}")
+        }
         11 -> println("Ejercicio 11")
         12 -> println("Ejercicio 12")
         13 -> println("Ejercicio 13")
@@ -201,7 +229,7 @@ fun ej3(){
 }
 fun ej4(){
     var lista=ListaEstudiantes()
-    println("¿Cuantos estudiantes quieres añadir a tu agenda?")
+    println("¿Cuantos estudiantes quieres añadir a tu lista de estudiantes?")
     var numEstudiantes= readLine()!!.toInt()
     for(i in 0..numEstudiantes-1){
         var estudiante= Estudiante()
@@ -215,7 +243,7 @@ fun ej4(){
             "$ANSI_PURPLE Elige una opcion:\n" +
                     "1. Añadir un estudiante.\n" +
                     "2. Mostrar un estudiante.\n" +
-                    "4. Mostrar promedio de los estudiantes.\n"+
+                    "3. Mostrar promedio de los estudiantes.\n"+
                     "0. Salir del programa $ANSI_RESET"
         )
         var opcion= readlnOrNull()
@@ -229,7 +257,7 @@ fun ej4(){
                 var estudianteBuscar= readLine().toString()
                 lista.mostrarEstudiante(estudianteBuscar)
             }
-            "4"->{
+            "3"->{
                 println("El promedio de los estudiantes es ${lista.calculaPromedios()}")
             }
             "0"->{
@@ -241,6 +269,55 @@ fun ej4(){
     }
 }
 fun ej5(){
-    
+    var almacen=Almacen()
+    println("¿Cuantos productos quieres añadir a tu almacen?")
+    var numProductos= readLine()!!.toInt()
+    for(i in 0..numProductos-1){
+        var producto= Producto()
+        almacen.agregarProducto(producto)
+    }
+    var exit=false
+    var opcion = ""
+    while (!exit) {
+        println("Opcion: "+ opcion)
+        println(
+            "$ANSI_PURPLE Elige una opcion:\n" +
+                    "1. Añadir un producto.\n" +
+                    "2. Mostrar productos.\n" +
+                    "3. Actualizar el stock de un producto.\n"+
+                    "0. Salir del programa $ANSI_RESET"
+        )
+        var opcion= readlnOrNull()
+        when(opcion){
+            "1"->{
+                var nuevoProducto=Producto()
+                almacen.agregarProducto(nuevoProducto)
+            }
+            "2"->{
+                almacen.mostrarProductos()
+                println("Pulsa enter para volver al menu")
+                var volver = readLine().toString()
+            }
+            "3"->{
+                almacen.actualizarStock()
+            }
+            "0"->{
+                println("Hasta luego.")
+                exit=true
+            }
+            else-> println("$opcion no es una opcion valida.")
+        }
+    }
 }
+fun ej6(){
+    val nombresPlanetas= listOf("Mercurio", "Venus", "Tierra", "Marte", "Júpiter", "Saturno", "Urano", "Neptuno")
+    val tiposPlanetas= listOf("Rocoso", "Rocoso", "Rocoso", "Rocoso", "Gaseoso", "Gaseoso", "Gaseoso", "Gaseoso")
+    val masaPlanetas= listOf(330,486,597,64,1898,568,86,102) //Billones de kg
+    for (i in 0 until nombresPlanetas.size){
+        val planeta=Planeta(nombresPlanetas[i],tiposPlanetas[i],masaPlanetas[i])
+        sistemaSolar.addPlaneta(planeta)
+    }
+    sistSolarcreado=true
+}
+
 

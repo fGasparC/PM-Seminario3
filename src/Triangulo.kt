@@ -8,12 +8,14 @@ hipótesis de que la longitud de los lados dados crean un triángulo)
 class Triangulo(var lA: Double=1.0,
     var lB: Double=1.0,
     var lC: Double=1.0,
-    var perimetro:Double= lA+lB+lC) {
+    var perimetro:Double= lA+lB+lC,
+    var tipo:String= "No definido"){
 
 
     fun rectangulo():Boolean{
-        if ((Math.pow(lA,2.0) + Math.pow(lB,2.0))==Math.pow(lC,2.0)) return true
-        else return false
-    }
+        val listaLados=mutableListOf(lA,lB,lC)
+        listaLados.sort()
+        return ((Math.pow(listaLados[1],2.0) + Math.pow(listaLados[2],2.0))==Math.pow(listaLados[0],2.0))
 
+    }
 }

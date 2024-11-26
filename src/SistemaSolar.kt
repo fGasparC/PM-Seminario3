@@ -31,4 +31,31 @@ class SistemaSolar {
             return min
         }
     }
+    fun mostrarPlanetas(){
+        for (planeta in planetas) {
+            planeta.toString()
+        }
+    }
+    fun mostrarPlanetasQueEmpiecenConLaLetrita(letrita: Char){
+        for (planeta in planetas) {
+            if(planeta.nombre[0].lowercase()==letrita.lowercase()){
+                planeta.toString()
+            }
+        }
+    }
+    fun mostrarPlanetasGaseososConMasaVeinteVecesMayorTierra():List<Planeta>?{
+        var listaPlanetas: MutableList<Planeta> = mutableListOf()
+        for (planeta in planetas) {
+            if(planeta.tipo=="Gaseoso" && planeta.masa>(20*597)) listaPlanetas.add(planeta)
+        }
+        if (listaPlanetas.size==0) return null
+        else return listaPlanetas
+    }
+    fun masaMedia():Float{
+        var masa=0
+        for (planeta in planetas) {
+            masa+=planeta.masa
+        }
+        return (masa/planetas.size).toFloat()
+    }
 }

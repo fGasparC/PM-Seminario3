@@ -17,8 +17,10 @@ open class Circunferencia (val radio: Double) {
 }
  */
 
-/*class Circulo(radio: Double, var color: String = "Rosita") : Circunferencia(radio) {
-    val centro: Array<Double> = arrayOf(0.0, 0.0)
-    val radio: Double = super(radio)
-    constructor(centro: Array<Double>, color: String) : this(radio,centro,color)
-}*/
+/*
+Ejercicio 15: Crea la clase Círculo que hereda de circunferencia. Tendrá dos
+constructores, el primero recibirá el radio y el color del círculo y el segundo
+su centro, un punto cualquiera y su color. Crear el método área() y
+sobrecargar el método toString() de forma que muestre toda la info de la
+circunferencia
+ */

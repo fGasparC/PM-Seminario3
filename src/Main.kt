@@ -66,11 +66,14 @@ programa principal.
 Ejercicio 17: Implementa las siguientes clases:
     clase Nota. Una nota contiene un identificador numérico y una línea de texto. Define
     constructor, accedentes y toString.
+
     clase NotaAlarma. Una nota que además contiene la hora en la que sonará la alarma. Define
     constructor, accedentes y toString.
+
     clase BlocNotas que modela un bloc de notas en el que se pueden introducir notas, listar
     todas las notas, eliminar una nota mediante su posición en el bloc de notas o saber cuantas
     notas contiene el bloc de notas. Debes utilizar una colección.
+    
     clase Prueba que cree un bloc de Notas de ejemplo y pruebe las operaciones que soporta. .
 
 Ejercicio 18: Define una jerarquía de clases que permita almacenar datos sobre los
@@ -190,24 +193,49 @@ fun main() {
             circunferencia y un punto cualquiera de la misma. Crear el método longitud()
             y sobrecargar el método toString() de forma que muestre toda la info de la
             circunferencia
-            */
+
             val a = arrayOf(2.0,2.0)
             val b = arrayOf(4.0,9.0)
             val circ=Circunferencia(5.0,a,b)
             val circ2=Circunferencia(b,a)
             val circ3=Circunferencia(5.0,a,b,)
             println(circ2.toString())
+             */
         }
         15 -> {
             println("Ejercicio 15")
         }
-        16 -> println("Ejercicio 16")
-        17 -> println("Ejercicio 17")
-        18 -> println("Ejercicio 18")
-        19 -> println("Ejercicio 19")
-        20 -> println("Ejercicio 20")
-        21 -> println("Ejercicio 21")
-        22 -> println("Ejercicio 22")
+        16 -> {
+            println("Ejercicio 16")
+            println("Clase Matematicas")
+            println(Matematicas.suma(2,4))
+            println(Matematicas.suma(2.9,4.3))
+            println(Matematicas.resta(2,4))
+            println(Matematicas.resta(2.1,4.2))
+            println(Matematicas.multiplicacion(2,4))
+            println(Matematicas.multiplicacion(2.3,4.2))
+            println(Matematicas.division(2,4))
+            println(Matematicas.division(2.1,4.3))
+        }
+        17 -> {
+            println("Ejercicio 17")
+
+        }
+        18 -> {
+            println("Ejercicio 18")
+        }
+        19 -> {
+            println("Ejercicio 19")
+        }
+        20 -> {
+            println("Ejercicio 20")
+        }
+        21 -> {
+            println("Ejercicio 21")
+        }
+        22 -> {
+            println("Ejercicio 22")
+        }
     }
 
 }

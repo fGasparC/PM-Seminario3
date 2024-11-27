@@ -73,7 +73,7 @@ Ejercicio 17: Implementa las siguientes clases:
     clase BlocNotas que modela un bloc de notas en el que se pueden introducir notas, listar
     todas las notas, eliminar una nota mediante su posición en el bloc de notas o saber cuantas
     notas contiene el bloc de notas. Debes utilizar una colección.
-    
+
     clase Prueba que cree un bloc de Notas de ejemplo y pruebe las operaciones que soporta. .
 
 Ejercicio 18: Define una jerarquía de clases que permita almacenar datos sobre los
@@ -138,7 +138,7 @@ fun main() {
         }
         4 -> {
             println("Ejercicio 4")
-            ej4( )
+            ej4()
         }
         5 -> {
             println("Ejercicio 5")
@@ -229,6 +229,7 @@ fun main() {
         }
         20 -> {
             println("Ejercicio 20")
+            Videojuego.crearVideojuegos()
         }
         21 -> {
             println("Ejercicio 21")

@@ -112,8 +112,11 @@ plataforma.
  */
 val ANSI_PURPLE = "\u001B[35m"
 val ANSI_RESET = "\u001B[0m"
+val ANSI_BLUE = "\u001B[34m"
+val ANSI_RED = "\u001B[31m"
 var sistemaSolar=SistemaSolar()
 var sistSolarcreado=false
+var championsLeague=Champions()
 
 fun main() {
 
@@ -164,10 +167,24 @@ fun main() {
             if (sistSolarcreado==false) ej6()
             println("La masa media del sistema solar es ${sistemaSolar.masaMedia()}")
         }
-        11 -> println("Ejercicio 11")
-        12 -> println("Ejercicio 12")
-        13 -> println("Ejercicio 13")
-        14 -> println("Ejercicio 14")
+        11 -> {
+            println("Ejercicio 11")
+            println("Es la clase EquipoFutbol")
+
+        }
+        12 -> {
+            println("Ejercicio 12")
+            ej12()
+        }
+        13 -> {
+            println("Ejercicio 13")
+            ej12()
+            championsLeague.championsLeague()
+        }
+        14 -> {
+            println("Ejercicio 14")
+            println("Es la clase Circunferencia")
+        }
         15 -> println("Ejercicio 15")
         16 -> println("Ejercicio 16")
         17 -> println("Ejercicio 17")
@@ -318,6 +335,30 @@ fun ej6(){
         sistemaSolar.addPlaneta(planeta)
     }
     sistSolarcreado=true
+}
+fun ej12(){
+    val equiposFutbol = listOf(
+        "Real Madrid" to "España",
+        "FC Barcelona" to "España",
+        "Atlético de Madrid" to "España",
+        "Sevilla FC" to "España",
+        "Manchester United" to "Inglaterra",
+        "Liverpool FC" to "Inglaterra",
+        "Chelsea FC" to "Inglaterra",
+        "Manchester City" to "Inglaterra",
+        "Juventus" to "Italia",
+        "AC Milan" to "Italia",
+        "Inter de Milán" to "Italia",
+        "AS Roma" to "Italia",
+        "Bayern Munich" to "Alemania",
+        "Borussia Dortmund" to "Alemania",
+        "RB Leipzig" to "Alemania",
+        "Bayer Leverkusen" to "Alemania")
+    for ((equipo,pais) in equiposFutbol) {
+        val EquipoFutbol= EquipoFutbol(equipo,pais)
+        println("Equipo: $equipo, pais: $pais")
+        championsLeague.addEquipo(EquipoFutbol)
+    }
 }
 
 

@@ -229,13 +229,41 @@ fun main() {
         }
         20 -> {
             println("Ejercicio 20")
-            Videojuego.crearVideojuegos()
+            val listaVideojuegos=ListaVideojuegos()
+            listaVideojuegos.videoJuegos=Videojuego.crearVideojuegos()
+            println("Busqueda por año")
+            val a =listaVideojuegos.devuelveJuegos(2010)
+            for (i in a){
+                println("Nombre:${i.nombre}/Año:${i.ano}")
+            }
+            println("Busqueda por plataforma")
+            val b =listaVideojuegos.devuelveJuegos("pc")
+            for (i in b){
+                println("Nombre:${i.nombre}/Año:${i.ano}")
+            }
+            println("Busqueda por año y plataforma")
+            val c =listaVideojuegos.devuelveJuegos(1999,"pc")
+            for (i in c){
+                println("Nombre:${i.nombre}/Año:${i.ano}")
+            }
         }
         21 -> {
             println("Ejercicio 21")
+            val listaVideojuegos=ListaVideojuegos()
+            listaVideojuegos.videoJuegos=Videojuego.crearVideojuegos()
+            val listaAnos= mutableListOf(1999,2000,2001,2002,2008,2019)
+            val listaPlataformas= mutableListOf("pc","xbox")
+            val resultado=listaVideojuegos.intersectaListas(listaAnos,listaPlataformas)
+            for(i in resultado){
+                println("${i.nombre}")
+            }
         }
         22 -> {
             println("Ejercicio 22")
+            val listaVideojuegos=ListaVideojuegos()
+            listaVideojuegos.videoJuegos=Videojuego.crearVideojuegos()
+            val mapa=listaVideojuegos.mapearJuegos()
+            mapa.forEach(){println(it)}
         }
     }
 

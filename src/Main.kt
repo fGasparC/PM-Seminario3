@@ -152,7 +152,8 @@ fun main() {
         7 -> {
             println("Ejercicio 7")
             if (sistSolarcreado==false) ej6()
-            sistemaSolar.mostrarPlanetas()
+            val listaplanetas=sistemaSolar.mostrarPlanetas()
+
 
         }
         8 -> {
@@ -163,7 +164,9 @@ fun main() {
         9 -> {
             println("Ejercicio 9")
             if (sistSolarcreado==false) ej6()
-            sistemaSolar.mostrarPlanetasGaseososConMasaVeinteVecesMayorTierra()
+            val listaplanetas=sistemaSolar.mostrarPlanetasGaseososConMasaVeinteVecesMayorTierra()
+            //listaplanetas!!.forEach{println(it.toString())}
+            //No hay
         }
         10 -> {
             println("Ejercicio 10")
@@ -219,6 +222,13 @@ fun main() {
         }
         17 -> {
             println("Ejercicio 17")
+            val prueba = BlocDeNotas()
+            prueba.agregarNota(Nota(1, "Comprar leche"))
+            prueba.agregarNota(NotaAlarma(2, "Llamar a Juan a las 5pm", "17:00"))
+            prueba.listarNotas()
+            println("Número de notas: ${prueba.contarNotas()}")
+            prueba.eliminarNota(1)
+            prueba.listarNotas()
 
         }
         18 -> {
@@ -226,6 +236,13 @@ fun main() {
         }
         19 -> {
             println("Ejercicio 19")
+            var manuPotter= Mago("Manu Potter",1600.0,150.0)
+            var manuPeleon=Guerrero("Manu Peleon", 400.0,50.0)
+            while(manuPotter.PV>manuPeleon.PV){
+                manuPotter.levelUp()
+                manuPeleon.levelUp()
+            }
+            println("${manuPeleon.nombre} tiene mas PV que ${manuPotter.nombre} en el nivel ${manuPotter.LVL}")
         }
         20 -> {
             println("Ejercicio 20")

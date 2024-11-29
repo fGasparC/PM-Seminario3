@@ -33,13 +33,13 @@ class SistemaSolar {
     }
     fun mostrarPlanetas(){
         for (planeta in planetas) {
-            planeta.toString()
+            println(planeta.toString())
         }
     }
     fun mostrarPlanetasQueEmpiecenConLaLetrita(letrita: Char){
         for (planeta in planetas) {
             if(planeta.nombre[0].lowercase()==letrita.lowercase()){
-                planeta.toString()
+                println(planeta.toString())
             }
         }
     }

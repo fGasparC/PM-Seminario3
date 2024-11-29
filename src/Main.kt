@@ -190,23 +190,11 @@ fun main() {
         14 -> {
             println("Ejercicio 14")
             println("Es la clase Circunferencia")
-            /*
-            Ejercicio 14: Crea la clase circunferencia. El constructor primario recibirá el
-            radio de la circunferencia y el secundario recibirá la posición del centro de la
-            circunferencia y un punto cualquiera de la misma. Crear el método longitud()
-            y sobrecargar el método toString() de forma que muestre toda la info de la
-            circunferencia
 
-            val a = arrayOf(2.0,2.0)
-            val b = arrayOf(4.0,9.0)
-            val circ=Circunferencia(5.0,a,b)
-            val circ2=Circunferencia(b,a)
-            val circ3=Circunferencia(5.0,a,b,)
-            println(circ2.toString())
-             */
         }
         15 -> {
             println("Ejercicio 15")
+            println("Es la clase Circulo")
         }
         16 -> {
             println("Ejercicio 16")
